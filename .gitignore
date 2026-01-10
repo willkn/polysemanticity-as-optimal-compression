@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Models & Data
+*.pt
+*.pth
+*.ckpt
+*.h5
+*.safetensors
+data/
+*.pkl
+*.npy
+
+# Experiment artifacts
+wandb/
+.neptune/
+mlruns/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Keep results but ignore large files
+results/*.pt
+results/*.pth
+results/*.npy
