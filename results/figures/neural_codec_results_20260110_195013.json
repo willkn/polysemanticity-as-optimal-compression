@@ -1,0 +1,25 @@
+{
+  "timestamp": "20260110_195013",
+  "config": {
+    "input_dim": 768,
+    "sae_hidden_dim": 4096,
+    "squeezer_bottleneck": 768
+  },
+  "sae_validation": {
+    "mse": 0.0833943784236908,
+    "mae": 0.22141754627227783,
+    "l0_sparsity": 0.2651847004890442,
+    "dead_features": 0,
+    "mean_active_per_sample": 1086.196533203125
+  },
+  "squeezer_validation": {
+    "e2e_mse": 0.7422029376029968,
+    "feature_mse": 0.15388751029968262,
+    "baseline_mse": 0.0833943784236908,
+    "performance_ratio": 8.899915697340946
+  },
+  "circuit_analysis": {
+    "mean_influence_ratio": 1.6795133352279663,
+    "or_gate_ratio": 0.0
+  }
+}

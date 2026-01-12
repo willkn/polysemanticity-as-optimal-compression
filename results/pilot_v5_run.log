@@ -1,0 +1,10 @@
+🚀 Running V5-Mini: input=128, sae=512, squeezer=128
+
+==============================
+SUPERPOSITION PARITY TEST
+==============================
+SAE Baseline MSE: 0.374251
+Squeezer E2E MSE: 1.728606
+Parity Ratio: 4.62x
+Dead SAE Atoms: 49/512
+Dead Synthetic Neurons: 0/128

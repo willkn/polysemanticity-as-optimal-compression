@@ -1,0 +1,5 @@
+Scenario,Risk Score (Mean),Detection Rate
+Safe (Random),0.12,0%
+Safe (Thematic),0.45,5%
+Dangerous (Coherent),1.35,98%
+Adversarial (Collision),0.88,84%

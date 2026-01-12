@@ -1,0 +1,17 @@
+✅ SAE Baseline MSE: 0.464620
+
+🔍 Finding Parity Point at M=128:
+  k=  8 | Parity: 3.87x
+  k= 16 | Parity: 3.16x
+  k= 24 | Parity: 2.66x
+  k= 32 | Parity: 2.32x
+  k= 40 | Parity: 2.05x
+  k= 48 | Parity: 1.83x
+  k= 56 | Parity: 1.66x
+  k= 64 | Parity: 1.51x
+  k= 80 | Parity: 1.31x
+  k= 96 | Parity: 1.18x
+  k=112 | Parity: 1.10x
+  k=128 | Parity: 1.11x
+
+✅ Final Sweep V8 Complete.

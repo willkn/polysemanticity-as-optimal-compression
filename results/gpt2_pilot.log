@@ -1,0 +1,25 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+🚀 Loading gpt2-small and SAE blocks.6.hook_resid_post...
+Loaded pretrained model gpt2-small into HookedTransformer
+Traceback (most recent call last):
+  File "/Users/kevknott/will/research/ARA/projects/the-neural-codec/experiments/gpt2_scale_up.py", line 101, in <module>
+    run_gpt2_squeezer()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/Users/kevknott/will/research/ARA/projects/the-neural-codec/experiments/gpt2_scale_up.py", line 31, in run_gpt2_squeezer
+    sae, cfg_dict, sparsity = SAE.from_pretrained(release=SAE_RELEASE, sae_id=SAE_ID, device=DEVICE)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/miniconda3/lib/python3.13/site-packages/sae_lens/saes/sae.py", line 587, in from_pretrained
+    return cls.from_pretrained_with_cfg_and_sparsity(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        release,
+        ^^^^^^^^
+    ...<4 lines>...
+        converter=converter,
+        ^^^^^^^^^^^^^^^^^^^^
+    )[0]
+    ^
+  File "/opt/miniconda3/lib/python3.13/site-packages/sae_lens/saes/sae.py", line 666, in from_pretrained_with_cfg_and_sparsity
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: ID blocks.6.hook_resid_post not found in release gpt2-small-res-jb. Valid IDs are ['blocks.0.hook_resid_pre', 'blocks.1.hook_resid_pre', 'blocks.2.hook_resid_pre', 'blocks.3.hook_resid_pre', 'blocks.4.hook_resid_pre', ...].

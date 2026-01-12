@@ -7,3 +7,6 @@ tqdm
 google-genai
 tenacity
 python-dotenv
+transformer_lens
+sae_lens
+streamlit

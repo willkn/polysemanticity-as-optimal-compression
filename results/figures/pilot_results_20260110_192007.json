@@ -1,0 +1,20 @@
+{
+  "timestamp": "20260110_192007",
+  "config": {
+    "model_dim": 768,
+    "sae_dim": 4096,
+    "bottleneck_dim": 768,
+    "topk_features": 64,
+    "topk_connections": 32,
+    "num_samples": 10000
+  },
+  "analysis": {
+    "topk": 32,
+    "mean_weight_ratio": 1.6985505819320679,
+    "median_weight_ratio": 1.6612850427627563,
+    "or_gate_ratio": 0.843,
+    "or_gate_pairs": 843,
+    "compression_type": "dense"
+  },
+  "final_loss": 27.28657954931259
+}

@@ -1,0 +1,55 @@
+================================================================================
+NEURAL CODEC EXPERIMENT - REVISED
+================================================================================
+
+Research Question: How does re-compression arrange monosemantic features?
+
+Architecture:
+  SAE: 768 → 4096 (sparse) → 768
+  Squeezer: 4096 → 768 → 4096
+
+[0/3] Generating synthetic activations...
+  Shape: torch.Size([10000, 768])
+
+================================================================================
+PHASE 1: TRAINING SPARSE AUTOENCODER
+================================================================================
+Training SAE:   0%|          | 0/50 [00:00<?, ?it/s]Training SAE:   2%|▏         | 1/50 [00:06<05:00,  6.13s/it]Training SAE:   4%|▍         | 2/50 [00:12<05:01,  6.29s/it]Training SAE:   6%|▌         | 3/50 [00:17<04:33,  5.82s/it]Training SAE:   8%|▊         | 4/50 [00:23<04:18,  5.63s/it]Training SAE:  10%|█         | 5/50 [00:28<04:03,  5.40s/it]Training SAE:  12%|█▏        | 6/50 [00:32<03:48,  5.19s/it]Training SAE:  14%|█▍        | 7/50 [00:37<03:37,  5.05s/it]Training SAE:  16%|█▌        | 8/50 [00:42<03:28,  4.96s/it]Training SAE:  18%|█▊        | 9/50 [00:47<03:20,  4.90s/it]Training SAE:  20%|██        | 10/50 [00:52<03:15,  4.89s/it]Training SAE:  22%|██▏       | 11/50 [00:56<03:09,  4.86s/it]Training SAE:  24%|██▍       | 12/50 [01:01<03:04,  4.86s/it]Training SAE:  26%|██▌       | 13/50 [01:06<03:01,  4.92s/it]Training SAE:  28%|██▊       | 14/50 [01:11<02:56,  4.89s/it]Training SAE:  30%|███       | 15/50 [01:16<02:55,  5.02s/it]Training SAE:  32%|███▏      | 16/50 [01:21<02:48,  4.95s/it]Training SAE:  34%|███▍      | 17/50 [01:27<02:52,  5.21s/it]Training SAE:  36%|███▌      | 18/50 [01:32<02:46,  5.21s/it]Training SAE:  38%|███▊      | 19/50 [01:38<02:42,  5.23s/it]Training SAE:  40%|████      | 20/50 [01:43<02:35,  5.19s/it]Training SAE:  42%|████▏     | 21/50 [01:48<02:30,  5.20s/it]Training SAE:  44%|████▍     | 22/50 [01:53<02:24,  5.18s/it]Training SAE:  46%|████▌     | 23/50 [01:59<02:26,  5.44s/it]Training SAE:  48%|████▊     | 24/50 [02:06<02:29,  5.76s/it]Training SAE:  50%|█████     | 25/50 [02:12<02:28,  5.93s/it]Training SAE:  52%|█████▏    | 26/50 [02:18<02:25,  6.04s/it]Training SAE:  54%|█████▍    | 27/50 [02:24<02:18,  6.01s/it]Training SAE:  56%|█████▌    | 28/50 [02:31<02:19,  6.36s/it]Training SAE:  58%|█████▊    | 29/50 [02:39<02:21,  6.73s/it]Training SAE:  60%|██████    | 30/50 [02:45<02:08,  6.45s/it]Training SAE:  62%|██████▏   | 31/50 [02:50<01:58,  6.22s/it]Training SAE:  64%|██████▍   | 32/50 [02:56<01:48,  6.01s/it]Training SAE:  66%|██████▌   | 33/50 [03:02<01:41,  5.95s/it]Training SAE:  68%|██████▊   | 34/50 [03:07<01:32,  5.78s/it]Training SAE:  70%|███████   | 35/50 [03:12<01:24,  5.65s/it]Training SAE:  72%|███████▏  | 36/50 [03:18<01:17,  5.51s/it]Training SAE:  74%|███████▍  | 37/50 [03:23<01:11,  5.53s/it]Training SAE:  76%|███████▌  | 38/50 [03:29<01:07,  5.67s/it]Training SAE:  78%|███████▊  | 39/50 [03:35<01:01,  5.62s/it]Training SAE:  80%|████████  | 40/50 [03:41<00:57,  5.72s/it]Training SAE:  82%|████████▏ | 41/50 [03:47<00:53,  5.97s/it]Training SAE:  84%|████████▍ | 42/50 [03:53<00:46,  5.87s/it]Training SAE:  86%|████████▌ | 43/50 [03:58<00:39,  5.69s/it]Training SAE:  88%|████████▊ | 44/50 [04:03<00:33,  5.55s/it]Training SAE:  90%|█████████ | 45/50 [04:08<00:27,  5.41s/it]Training SAE:  92%|█████████▏| 46/50 [04:15<00:22,  5.64s/it]Training SAE:  94%|█████████▍| 47/50 [04:20<00:16,  5.66s/it]Training SAE:  96%|█████████▌| 48/50 [04:25<00:11,  5.51s/it]Training SAE:  98%|█████████▊| 49/50 [04:31<00:05,  5.40s/it]Training SAE: 100%|██████████| 50/50 [04:36<00:00,  5.32s/it]Training SAE: 100%|██████████| 50/50 [04:36<00:00,  5.52s/it]
+Epoch 10: Recon=24.2462, Sparsity=75.6140
+Epoch 20: Recon=25.9607, Sparsity=63.4656
+Epoch 30: Recon=26.8211, Sparsity=56.5594
+Epoch 40: Recon=26.8427, Sparsity=52.1697
+Epoch 50: Recon=26.9834, Sparsity=49.0989
+
+================================================================================
+SAE VALIDATION METRICS
+================================================================================
+
+1. RECONSTRUCTION QUALITY:
+   MSE: 0.081825
+   MAE: 0.219204
+
+2. SPARSITY:
+   L0 (fraction active): 0.265
+   Mean active features/sample: 1087.2
+   Std active features/sample: 134.9
+
+3. FEATURE USAGE:
+   Dead features: 0/4096 (0.0%)
+   Active features: 4096
+
+4. FEATURE STATISTICS:
+   Mean feature norm: 37.4784
+   Max feature norm: 68.1957
+   Norm std: 10.9949
+
+5. DECODER WEIGHTS:
+   Mean decoder norm: 1.4991
+   Decoder norm std: 0.1095
+
+================================================================================
+PHASE 2: TRAINING SQUEEZER (END-TO-END)
+================================================================================
+Training Squeezer:   0%|          | 0/50 [00:00<?, ?it/s]Training Squeezer:   2%|▏         | 1/50 [00:06<04:57,  6.08s/it]Training Squeezer:   4%|▍         | 2/50 [00:13<05:43,  7.15s/it]Training Squeezer:   6%|▌         | 3/50 [00:20<05:26,  6.94s/it]Training Squeezer:   8%|▊         | 4/50 [00:26<04:57,  6.48s/it]Training Squeezer:  10%|█         | 5/50 [00:31<04:33,  6.08s/it]Training Squeezer:  12%|█▏        | 6/50 [00:37<04:19,  5.90s/it]Training Squeezer:  14%|█▍        | 7/50 [00:43<04:17,  5.98s/it]Training Squeezer:  16%|█▌        | 8/50 [00:50<04:18,  6.15s/it]Training Squeezer:  18%|█▊        | 9/50 [00:56<04:19,  6.34s/it]Training Squeezer:  20%|██        | 10/50 [01:03<04:17,  6.44s/it]Training Squeezer:  22%|██▏       | 11/50 [01:10<04:15,  6.55s/it]Training Squeezer:  24%|██▍       | 12/50 [01:16<04:09,  6.56s/it]Training Squeezer:  26%|██▌       | 13/50 [01:22<03:52,  6.29s/it]Training Squeezer:  28%|██▊       | 14/50 [01:28<03:40,  6.12s/it]Training Squeezer:  30%|███       | 15/50 [01:33<03:29,  5.99s/it]Training Squeezer:  32%|███▏      | 16/50 [01:39<03:19,  5.87s/it]Training Squeezer:  34%|███▍      | 17/50 [01:44<03:09,  5.73s/it]Training Squeezer:  36%|███▌      | 18/50 [01:50<03:04,  5.75s/it]Training Squeezer:  38%|███▊      | 19/50 [01:56<03:00,  5.83s/it]Training Squeezer:  40%|████      | 20/50 [02:02<02:56,  5.87s/it]Training Squeezer:  42%|████▏     | 21/50 [02:08<02:49,  5.86s/it]Training Squeezer:  44%|████▍     | 22/50 [02:14<02:42,  5.82s/it]Training Squeezer:  46%|████▌     | 23/50 [02:19<02:35,  5.77s/it]Training Squeezer:  48%|████▊     | 24/50 [02:25<02:31,  5.82s/it]Training Squeezer:  50%|█████     | 25/50 [02:31<02:27,  5.92s/it]Training Squeezer:  52%|█████▏    | 26/50 [02:38<02:26,  6.10s/it]Training Squeezer:  54%|█████▍    | 27/50 [02:44<02:18,  6.03s/it]Training Squeezer:  56%|█████▌    | 28/50 [02:50<02:10,  5.95s/it]Training Squeezer:  58%|█████▊    | 29/50 [02:56<02:07,  6.08s/it]Training Squeezer:  60%|██████    | 30/50 [03:02<01:59,  5.97s/it]Training Squeezer:  62%|██████▏   | 31/50 [03:07<01:52,  5.90s/it]Training Squeezer:  64%|██████▍   | 32/50 [03:13<01:44,  5.81s/it]Training Squeezer:  66%|██████▌   | 33/50 [03:19<01:37,  5.74s/it]Training Squeezer:  68%|██████▊   | 34/50 [03:25<01:33,  5.82s/it]Training Squeezer:  70%|███████   | 35/50 [03:31<01:29,  5.96s/it]Training Squeezer:  72%|███████▏  | 36/50 [03:37<01:24,  6.05s/it]Training Squeezer:  74%|███████▍  | 37/50 [03:44<01:20,  6.16s/it]Training Squeezer:  76%|███████▌  | 38/50 [03:50<01:13,  6.09s/it]Training Squeezer:  78%|███████▊  | 39/50 [03:56<01:06,  6.09s/it]Training Squeezer:  80%|████████  | 40/50 [04:02<01:00,  6.05s/it]Training Squeezer:  82%|████████▏ | 41/50 [04:08<00:54,  6.07s/it]Training Squeezer:  84%|████████▍ | 42/50 [04:14<00:49,  6.19s/it]Training Squeezer:  86%|████████▌ | 43/50 [04:20<00:42,  6.01s/it]Training Squeezer:  88%|████████▊ | 44/50 [04:25<00:35,  5.89s/it]Training Squeezer:  90%|█████████ | 45/50 [04:31<00:29,  5.82s/it]Training Squeezer:  92%|█████████▏| 46/50 [04:37<00:23,  5.75s/it]Training Squeezer:  94%|█████████▍| 47/50 [04:42<00:17,  5.79s/it]Training Squeezer:  96%|█████████▌| 48/50 [04:48<00:11,  5.76s/it]Training Squeezer:  98%|█████████▊| 49/50 [04:54<00:05,  5.79s/it]Training Squeezer: 100%|██████████| 50/50 [05:00<00:00,  5.80s/it]Training Squeezer: 100%|██████████| 50/50 [05:00<00:00,  6.01s/it]
+/opt/miniconda3/lib/python3.13/multiprocessing/resource_tracker.py:324: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-1c6uudta'}
+  warnings.warn(
