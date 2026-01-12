@@ -45,6 +45,20 @@ def main():
         target_theme = st.selectbox("Select Steering Theme", list(THEMES.keys()))
         # High-precision slider for low strength steering
         strength = st.slider("Steering Strength", 0.0, 10.0, 1.4, 0.1)
+        
+        with st.expander("ℹ️ How does this work?"):
+            st.markdown("""
+            **Real-Time "No-Cost Finetuning"**
+            
+            Instead of retraining the model (which costs thousands of dollars), we use **Thematic Steering** to intervene directly in the model's "brain" during generation.
+            
+            1. **The Map**: We've mapped the model's neural activity to specific concepts (Themes).
+            2. **The Compass**: When you select a theme, we calculate a "Magnetic North" for that concept.
+            3. **The Nudge**: As the model thinks, we gently rotate its internal state towards your chosen theme.
+            
+            This allows for precise control over tone and topic without changing a single model weight.
+            """)
+            
         input_text = st.text_area("Input Prompt", "The scientists were investigating the", height=100)
         num_tokens = st.slider("Tokens to Generate", 10, 60, 30)
         gen_button = st.button("Steer & Compare")
