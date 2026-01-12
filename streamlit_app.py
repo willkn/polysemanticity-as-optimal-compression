@@ -22,12 +22,18 @@ def load_models():
     return model, sae, device
 
 def steer_hook(resid, hook, sae, indices, strength=15.0):
-    sae_acts = sae.encode(resid)
+    # 1. Create Sparse Acts Vector
+    # We want to add PURE DIRECTION, not reconstruction bias.
+    steering_acts = torch.zeros((resid.shape[0], resid.shape[1], sae.cfg.d_sae), device=resid.device)
     for idx in indices:
-        if idx < sae_acts.shape[-1]:
-            # Gentle additive boost
-            sae_acts[:, :, idx] = (sae_acts[:, :, idx] + 0.1) * strength if sae_acts[:, :, idx].max() < 1.0 else sae_acts[:, :, idx] * strength
-    return sae.decode(sae_acts)
+        steering_acts[:, :, idx] = strength
+        
+    # 2. Decode manually WITHOUT bias (x = W_dec @ f)
+    # sae.decode() adds b_dec, which shifts the manifold by ~50 units, causing incoherence.
+    direction = steering_acts @ sae.W_dec
+    
+    # 3. Add to residual stream
+    return resid + direction
 
 def main():
     st.title("🧠 Neural Codec Steering")
@@ -37,7 +43,8 @@ def main():
     col1, col2 = st.columns(2)
     with col1:
         target_theme = st.selectbox("Select Steering Theme", list(THEMES.keys()))
-        strength = st.slider("Steering Strength", 0.0, 60.0, 30.0)
+        # High-precision slider for low strength steering
+        strength = st.slider("Steering Strength", 0.0, 10.0, 1.4, 0.1)
         input_text = st.text_area("Input Prompt", "The scientists were investigating the", height=100)
         num_tokens = st.slider("Tokens to Generate", 10, 60, 30)
         gen_button = st.button("Steer & Compare")

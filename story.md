@@ -68,3 +68,40 @@
 1. Completed Paper: paper/main.tex (Abstract, Theory, Results, Steering, Complexity).
 2. Steering Demo: steering_dash.py (Streamlit-based behavioral control).
 3. Thematic Atlas: results/neural_atlas.json (512 atoms mapped to 128 neurons).
+
+## 2026-01-12 15:30 - Future Research Directions (Pivot Point)
+
+**Status**: Project deployed successfully. Identified key limitations in the current approach.
+
+**Problem 1: Theme Definitions are Brittle**
+*   **Issue**: Current themes are defined by human intuition or simple prompt subtraction. This includes noise and misses subtle semantic connections.
+*   **Proposed Solution**: **Latent Space Clustering**.
+    *   Treat SAE encoder weights as semantic embeddings.
+    *   Perform structural clustering (HDBSCAN/Spectral) on the atom vectors.
+    *   *Hypothesis*: The "Natural Themes" of the model will emerge as dense clusters in this space, independent of human labels.
+
+**Problem 2: Steering Incoherence**
+*   **Issue**: Boosting themes pushes the model into gibberish states.
+*   **Root Cause A (Manifold Departure)**: Adding a constant vector $\alpha \cdot \vec{v}$ pushes the residual stream norm far outside the training distribution. The model doesn't know how to process input of magnitude $||x + \delta||$.
+*   **Root Cause B (Model Weakness)**: GPT-2 Small has a "soft" manifold; it hallucinates easily. Stronger models (Llama-3, Gemma-2) have more robust internal error correction.
+*   **Proposed Solution**:
+    *   **Steering Scalar Fix**: Normalize the steering vector to match the local residual norm.
+    *   **Model Upgrade**: Replicate this pipeline on Gemma-2-2B SAEs.
+    *   **Subtractive Steering**: Instead of boosting (adding energy), try *clamping* antagonistic themes (removing interference).
+
+**Next Strategic Move**: Move from "Validation" (GPT-2) to "Scale" (Gemma/Llama) and replace manual labelling with automated graph theoretic clustering.
+
+## 2026-01-12 15:35 - Low Strength Steering Validation
+
+**Status**: Verified user observation that low strength (~1.4x) yields coherent steering.
+
+**Results (V50 Experiment):**
+- **Astro (Strength 1.4)**: 'The research team published a paper on the *magnetic field* that makes the planet look like a *distant star*.' (Success: Coherent + Thematic)
+- **Botany (Strength 1.4)**: 'The research team published a paper on the finding Thursday. Scientists across the continent of Africa "consistently" found that not just *plants*...' (Success: Coherent + Thematic)
+- **Failure Mode**: At Strength 5.0+, output begins to degrade into hallucinations or weak associations, though still better than unbiased boosting.
+
+**Adjustments**:
+- Dashboard Slider: Range reduced to 0.0 - 10.0 (Step 0.1).
+- Default Strength: Set to 1.4 based on empirical sweet spot.
+
+**Conclusion**: The "Unbiased Steering" fix combined with low-strength intervention allows GPT-2 to perform valid thematic steering without breaking syntax.
